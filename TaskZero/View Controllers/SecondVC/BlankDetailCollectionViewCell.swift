@@ -8,5 +8,6 @@
 import UIKit
 
 class BlankDetailCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var imageVieww: UIImageView!
     
 }

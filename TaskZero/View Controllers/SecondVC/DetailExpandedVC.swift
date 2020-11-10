@@ -12,6 +12,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     // Initialize variables
     var x = 0
     var y = 0
+    var imageArr = ["1","2"]
     
     // Create the container view to hide the bg view when PopUp card is presented.
     var containerView = UIView()
@@ -88,12 +89,14 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     
     //MARK:- Setup blank CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: BlankDetailCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BlankDetailCollectionViewCell", for: indexPath) as! BlankDetailCollectionViewCell
         cell.contentView.layer.cornerRadius = 25
+        cell.imageVieww.image = UIImage(named: imageArr[indexPath.row])
+        cell.imageVieww.clipsToBounds = true
         return cell
     }
     
@@ -171,7 +174,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }) { [self] (finished) in
             // After finishing present pop up after a delay of 2 seconds and change cross button image to checked
             UIView.animate(withDuration: 1.0, animations: { [self] in
-                //crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
+                downloadopacityView.alpha = 0.4
                 })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 progressBarAnimation(sender)
@@ -180,8 +183,8 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         
     }
     @objc func progressBarAnimation(_ sender: Any) {
-        self.downloadButton.frame = CGRect(x: 46, y: 783, width: 30, height: 59)
-        downloadopacityView.alpha = 0.4
+        self.downloadButton.frame = CGRect(x: 46, y: 783, width: 0, height: 59)
+        
         UIView.animate(withDuration: 2.0, delay: 0.5,
                    usingSpringWithDamping: 0.7,
                    initialSpringVelocity: 0.7,
@@ -213,7 +216,6 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                    animations: { [self] in
                     self.downloadButton.frame = CGRect(x: 46, y: 783, width: 323, height: 59)
                     downloadButton.backgroundColor = UIColor(named: "SkyBlueColor")
-                    //downloadButton.setTitle("PLAY", for: .normal)
         }, completion: nil)
         
         UIView.animate(withDuration: 1.0, animations: { [self] in
