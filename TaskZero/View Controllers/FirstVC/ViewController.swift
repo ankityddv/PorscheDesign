@@ -28,7 +28,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let DetailExpandedVC =  self.storyboard!.instantiateViewController(withIdentifier: "DetailExpandedVC") as! DetailExpandedVC
-            //DetailExpandedVC.modalTransitionStyle = .crossDissolve
+            DetailExpandedVC.modalTransitionStyle = .crossDissolve
             self.present(DetailExpandedVC, animated: true, completion: nil)
         }
     }
@@ -39,6 +39,10 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         bgView.layer.cornerRadius = 15
+        // set default theme to light only
+        UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .light
+        }
     }
 
 

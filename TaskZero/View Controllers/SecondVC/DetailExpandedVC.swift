@@ -14,10 +14,12 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     var y = 0
     var imageArr = ["1","2"]
     
+    
     // Create the container view to hide the bg view when PopUp card is presented.
     var containerView = UIView()
     // Initialise PopUp height
     let popUpViewHeight: CGFloat = 428
+    
     
     //MARK:- Declaring DetailView elements
     @IBOutlet weak var productImageView: UIImageView!
@@ -26,9 +28,11 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var crossDownloadButton: UIButton!
     @IBOutlet weak var textfadeinView: UIView!
     @IBOutlet var dismissButton: [UIView]!
+    @IBOutlet weak var collectionVieww: UICollectionView!
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     //MARK:- Declaring popupView elements
     @IBOutlet var popUpView: UIView!
@@ -102,19 +106,16 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // PopupView
-        greenButton.layer.cornerRadius = 29.5
-        popUpView.layer.cornerRadius = 20
+        // set default theme to light only
+        UIApplication.shared.windows.forEach { window in
+                        window.overrideUserInterfaceStyle = .light
+        }
         // DeatilView
         productImageView.layer.cornerRadius = 25
         downloadButton.layer.cornerRadius = 29.5
         downloadopacityView.layer.cornerRadius = 29.5
         crossDownloadButton.layer.cornerRadius = 22.5
         crossDownloadButton.alpha = 0.0
-        // Setup downloadButton
-        downloadButton.addTarget(self, action: #selector(downloadBttnTapped(_:)), for: .touchUpInside)
-        // Setup cross button image insets
-        crossDownloadButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         // SetUp View One
         imageOne.layer.cornerRadius = 50
         imageTwo.layer.cornerRadius = 50
@@ -122,11 +123,34 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         FiveBttn.layer.cornerRadius = 25
         TenBttn.layer.cornerRadius = 25
         FifteenBttn.layer.cornerRadius = 25
+        
+        // PopupView
+        greenButton.layer.cornerRadius = 29.5
+        popUpView.layer.cornerRadius = 20
+        
+        // Setup downloadButton action
+        downloadButton.addTarget(self, action: #selector(downloadBttnTapped(_:)), for: .touchUpInside)
+        
+        // Setup cross button image insets
+        crossDownloadButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        
+        textfadeinView.alpha = 0
+        collectionVieww.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [self] in
+            UIView.animate(withDuration: 0.4, animations: { [self] in
+                textfadeinView.alpha = 1
+                collectionVieww.alpha = 1
+            }) {(finished) in
+                
+            }
+        }
+        
     }
     
    
-    
-    
     //MARK:- Setup button actions
     @objc func downloadBttnTapped(_ sender: Any) {
         if y == 0{
@@ -134,14 +158,15 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             y += 1
         }
         else if y == 1 {
+            // Present PopUp
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
                 presentPopUp(sender)
                 popUpContainerView.addSubview(self.ViewOne)
             }
-            
+            // Set the download button to initial State
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [self] in
-                // Set the download button in initial State
                 y = 0
+                
                 UIView.animate(withDuration: 2.0, delay: 0.5,
                            usingSpringWithDamping: 0.7,
                            initialSpringVelocity: 0.7,
@@ -155,19 +180,18 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }
     }
     
-    // Animate download button and show cancel button
+    // Animate download button and show cross button
     @objc func action1(_ sender: Any) {
         UIView.animate(withDuration: 2.0, delay: 0.5,
                    usingSpringWithDamping: 0.7,
                    initialSpringVelocity: 0.7,
                    options: [.curveEaseIn],
                    animations: { [self] in
-                    self.downloadButton.frame = CGRect(x: 46, y: 783, width: 261, height: 59)
-                    
+                    self.downloadButton.frame = CGRect(x: 46, y: 783, width: 261, height: 59) // decrease the width of download button
         }, completion: nil)
         
         crossDownloadButton.alpha = 0.0
-        // fade in effect on text and cancel button
+        // fade in effect on button title and cross button
         UIView.animate(withDuration: 2.0,delay: 0.5, animations: { [self] in
                 crossDownloadButton.alpha = 1.0
                 downloadButton.setTitle("10MB/30MB", for: .normal)
@@ -176,14 +200,15 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             UIView.animate(withDuration: 1.0, animations: { [self] in
                 downloadopacityView.alpha = 0.4
                 })
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                progressBarAnimation(sender)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                progressBarAnimation(sender) //progress bar animation will play after 1 secons
             }
         }
-        
     }
+    
     @objc func progressBarAnimation(_ sender: Any) {
-        self.downloadButton.frame = CGRect(x: 46, y: 783, width: 0, height: 59)
+        
+        self.downloadButton.frame = CGRect(x: 46, y: 783, width: 0, height: 59) // hide download button
         
         UIView.animate(withDuration: 2.0, delay: 0.5,
                    usingSpringWithDamping: 0.7,
@@ -195,19 +220,17 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }, completion: nil)
         
         UIView.animate(withDuration: 2.0,delay: 0.5, animations: { [self] in
-            downloadButton.setTitle("10MB/30MB", for: .normal)
             downloadopacityView.alpha = 0
         }) { [self] (finished) in
             UIView.animate(withDuration: 1.0, animations: { [self] in
-                crossDownloadButton.alpha = 0.0
-                
+                crossDownloadButton.alpha = 0.0 //hide cross button
                 crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
             }) {(finished) in
                 changeButtonColor(sender)
             }
         }
     }
-    // Change Download Button size to original and hide cancel button
+    // Change color, titleLabel and Download Button size to original
     @objc func changeButtonColor(_ sender: Any) {
         UIView.animate(withDuration: 2.0, delay: 0.5,
                    usingSpringWithDamping: 0.7,
@@ -219,19 +242,21 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }, completion: nil)
         
         UIView.animate(withDuration: 1.0, animations: { [self] in
-                crossDownloadButton.alpha = 0.0
-                downloadButton.setTitle("PLAY", for: .normal)
+            downloadButton.setTitle("PLAY", for: .normal)
         }) {(finished) in
             /* Process one finished.
              Now press the download button again and the process will continue to present the pop up
              */
         }
-        
     }
     
     @objc func presentPopUp(_ sender: Any) {
-        
-        let window = UIApplication.shared.keyWindow
+        let window = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
           containerView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
           containerView.frame = self.view.frame
           window?.addSubview(containerView)
@@ -246,7 +271,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         
         // Container View Animation on opening
         containerView.alpha = 0
-          UIView.animate(withDuration: 0.5,
+          UIView.animate(withDuration: 1,
                          delay: 0, usingSpringWithDamping: 1.0,
                          initialSpringVelocity: 1.0,
                          options: .curveEaseInOut, animations: {
@@ -259,7 +284,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         window?.addSubview(popUpView)
         
         // Popup View animation on opening
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 1,
                          delay: 0, usingSpringWithDamping: 1.0,
                          initialSpringVelocity: 1.0,
                          options: .curveEaseInOut, animations: {
@@ -273,7 +298,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     @objc func popUpViewTapped() {
         // Container View animation on closing
         let screenSize = UIScreen.main.bounds.size
-          UIView.animate(withDuration: 0.5,
+          UIView.animate(withDuration: 1,
                          delay: 0, usingSpringWithDamping: 1.0,
                          initialSpringVelocity: 1.0,
                          options: .curveEaseInOut, animations: {
@@ -282,7 +307,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         
         // PopUp View animation on closing
         _ = UIScreen.main.bounds.size
-          UIView.animate(withDuration: 0.5,
+          UIView.animate(withDuration: 1,
                          delay: 0, usingSpringWithDamping: 1.0,
                          initialSpringVelocity: 1.0,
                          options: .curveEaseInOut, animations: {
