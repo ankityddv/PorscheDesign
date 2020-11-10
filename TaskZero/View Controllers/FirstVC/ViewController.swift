@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
-    var imgArr = ["testImage","testImage"]
+    var imgArr = ["one","two","three"]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -28,7 +28,8 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let DetailExpandedVC =  self.storyboard!.instantiateViewController(withIdentifier: "DetailExpandedVC") as! DetailExpandedVC
-                        self.present(DetailExpandedVC, animated: true, completion: nil)
+            //DetailExpandedVC.modalTransitionStyle = .crossDissolve
+            self.present(DetailExpandedVC, animated: true, completion: nil)
         }
     }
     
@@ -37,7 +38,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bgView.layer.cornerRadius = 20
+        bgView.layer.cornerRadius = 15
     }
 
 
