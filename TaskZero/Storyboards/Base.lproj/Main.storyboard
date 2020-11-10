@@ -103,9 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="GreenColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal">
-                                    <string key="title">DOWNLOAD 
-      30MB</string>
+                                <state key="normal" title="DOWNLOAD 30MB">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -182,6 +180,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OkF-zH-NyZ">
+                                <rect key="frame" x="46" y="783" width="270" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="GreenColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wx1-FF-Osf">
                                 <rect key="frame" x="324" y="790" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -201,6 +204,7 @@
                         <outlet property="ViewTwo" destination="YQj-Ei-Ggw" id="5Ew-G7-bjw"/>
                         <outlet property="crossDownloadButton" destination="wx1-FF-Osf" id="r3w-r1-fXf"/>
                         <outlet property="downloadButton" destination="SY0-Pi-nTu" id="O54-dQ-yyL"/>
+                        <outlet property="downloadopacityView" destination="OkF-zH-NyZ" id="j6i-9p-d8r"/>
                         <outlet property="greenButton" destination="6SZ-He-Y8X" id="G5P-yM-sfi"/>
                         <outlet property="imageOne" destination="SrR-6y-xKA" id="gYQ-Xb-Xfq"/>
                         <outlet property="imageTwo" destination="c4X-Q8-fxc" id="nWa-1G-LrP"/>
@@ -384,7 +388,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="855" y="112"/>
+            <point key="canvasLocation" x="853.62318840579712" y="111.83035714285714"/>
         </scene>
     </scenes>
     <resources>

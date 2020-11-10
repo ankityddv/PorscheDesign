@@ -21,6 +21,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     //MARK:- Declaring DetailView elements
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var downloadopacityView: UIView!
     @IBOutlet weak var crossDownloadButton: UIButton!
     @IBOutlet weak var textfadeinView: UIView!
     @IBOutlet var dismissButton: [UIView]!
@@ -104,6 +105,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         // DeatilView
         productImageView.layer.cornerRadius = 25
         downloadButton.layer.cornerRadius = 29.5
+        downloadopacityView.layer.cornerRadius = 29.5
         crossDownloadButton.layer.cornerRadius = 22.5
         crossDownloadButton.alpha = 0.0
         // Setup downloadButton
@@ -169,15 +171,39 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }) { [self] (finished) in
             // After finishing present pop up after a delay of 2 seconds and change cross button image to checked
             UIView.animate(withDuration: 1.0, animations: { [self] in
-                crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
+                //crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
                 })
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                changeButtonColor(sender)
+                progressBarAnimation(sender)
             }
         }
         
     }
-    
+    @objc func progressBarAnimation(_ sender: Any) {
+        self.downloadButton.frame = CGRect(x: 46, y: 783, width: 30, height: 59)
+        downloadopacityView.alpha = 0.4
+        UIView.animate(withDuration: 2.0, delay: 0.5,
+                   usingSpringWithDamping: 0.7,
+                   initialSpringVelocity: 0.7,
+                   options: [.curveEaseIn],
+                   animations: { [self] in
+                    self.downloadButton.frame = CGRect(x: 46, y: 783, width: 261, height: 59)
+                    
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 2.0,delay: 0.5, animations: { [self] in
+            downloadButton.setTitle("10MB/30MB", for: .normal)
+            downloadopacityView.alpha = 0
+        }) { [self] (finished) in
+            UIView.animate(withDuration: 1.0, animations: { [self] in
+                crossDownloadButton.alpha = 0.0
+                
+                crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
+            }) {(finished) in
+                changeButtonColor(sender)
+            }
+        }
+    }
     // Change Download Button size to original and hide cancel button
     @objc func changeButtonColor(_ sender: Any) {
         UIView.animate(withDuration: 2.0, delay: 0.5,
@@ -187,7 +213,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                    animations: { [self] in
                     self.downloadButton.frame = CGRect(x: 46, y: 783, width: 323, height: 59)
                     downloadButton.backgroundColor = UIColor(named: "SkyBlueColor")
-                    downloadButton.setTitle("PLAY", for: .normal)
+                    //downloadButton.setTitle("PLAY", for: .normal)
         }, completion: nil)
         
         UIView.animate(withDuration: 1.0, animations: { [self] in
