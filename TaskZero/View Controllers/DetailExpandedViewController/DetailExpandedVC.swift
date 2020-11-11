@@ -107,11 +107,6 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set default theme to light only
-        UIApplication.shared.windows.forEach { window in
-                        window.overrideUserInterfaceStyle = .light
-        }
-        
         // Initialise id to animate the view controller tranition
         self.hero.isEnabled = true
         bgView.hero.id = "lol"

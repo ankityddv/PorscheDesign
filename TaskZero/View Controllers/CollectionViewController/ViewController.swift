@@ -46,10 +46,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // set default theme to light only
-        UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .light
-        }
     }
 
 
