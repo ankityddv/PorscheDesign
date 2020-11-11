@@ -10,8 +10,12 @@ import Hero // To implement app store like transition animation
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
-    var imgArr = ["one","two","three"]
+    var imgArr = ["one","two","three"] // images for collection view
     
+    @IBOutlet weak var bgView: UIView!
+    
+    
+    //MARK:- Setup CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -35,14 +39,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             let DetailExpandedVC =  self.storyboard!.instantiateViewController(withIdentifier: "DetailExpandedVC") as! DetailExpandedVC
             self.present(DetailExpandedVC, animated: true, completion: nil)
         }
+        else {
+            print("Dead end.")
+        }
     }
-    
-
-    @IBOutlet weak var bgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bgView.layer.cornerRadius = 15
         // set default theme to light only
         UIApplication.shared.windows.forEach { window in
                 window.overrideUserInterfaceStyle = .light

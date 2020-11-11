@@ -97,13 +97,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3624CCCD255A4ED200930DB3 /* FirstVC */ = {
+		3624CCCD255A4ED200930DB3 /* CollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				369C40D625598B420026ACBB /* ViewController.swift */,
 				3662E0C32559947800561FE7 /* MainCollectionViewCell.swift */,
 			);
-			path = FirstVC;
+			path = CollectionViewController;
 			sourceTree = "<group>";
 		};
 		3624CCD9255A5A7E00930DB3 /* Storyboards */ = {
@@ -118,19 +118,19 @@
 		3624CCDA255A5A9B00930DB3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3624CCCD255A4ED200930DB3 /* FirstVC */,
-				3624CCDB255A5AA500930DB3 /* SecondVC */,
+				3624CCCD255A4ED200930DB3 /* CollectionViewController */,
+				3624CCDB255A5AA500930DB3 /* DetailExpandedViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		3624CCDB255A5AA500930DB3 /* SecondVC */ = {
+		3624CCDB255A5AA500930DB3 /* DetailExpandedViewController */ = {
 			isa = PBXGroup;
 			children = (
 				3662E0C925599C1A00561FE7 /* DetailExpandedVC.swift */,
 				3624CCD1255A552300930DB3 /* BlankDetailCollectionViewCell.swift */,
 			);
-			path = SecondVC;
+			path = DetailExpandedViewController;
 			sourceTree = "<group>";
 		};
 		369C40C625598B420026ACBB = {
