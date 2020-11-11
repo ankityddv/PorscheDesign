@@ -1,0 +1,6 @@
+framework module Pods_TaskZero_TaskZeroUITests {
+  umbrella header "Pods-TaskZero-TaskZeroUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

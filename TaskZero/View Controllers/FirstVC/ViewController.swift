@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero // To implement app store like transition animation
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
@@ -21,6 +22,10 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         cell.imageVieww.layer.cornerRadius = 25
         cell.greenButton.layer.cornerRadius = 29.5
         cell.contentView.layer.cornerRadius = 38
+        // Initialise id to animate the view controller tranition
+        cell.contentView.hero.id = "lol"
+        cell.greenButton.hero.id = "lmao"
+        
         cell.contentView.clipsToBounds = true
         return cell
     }
@@ -28,7 +33,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let DetailExpandedVC =  self.storyboard!.instantiateViewController(withIdentifier: "DetailExpandedVC") as! DetailExpandedVC
-            DetailExpandedVC.modalTransitionStyle = .crossDissolve
             self.present(DetailExpandedVC, animated: true, completion: nil)
         }
     }

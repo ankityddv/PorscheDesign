@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
@@ -13,7 +14,6 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     var x = 0
     var y = 0
     var imageArr = ["1","2"]
-    
     
     // Create the container view to hide the bg view when PopUp card is presented.
     var containerView = UIView()
@@ -23,6 +23,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     
     //MARK:- Declaring DetailView elements
     @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var downloadopacityView: UIView!
     @IBOutlet weak var crossDownloadButton: UIButton!
@@ -110,6 +111,13 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         UIApplication.shared.windows.forEach { window in
                         window.overrideUserInterfaceStyle = .light
         }
+        
+        // Initialise id to animate the view controller tranition
+        self.hero.isEnabled = true
+        bgView.hero.id = "lol"
+        productImageView.hero.id = "lmao"
+        collectionVieww.hero.modifiers = [.translate(y:100)]
+        
         // DeatilView
         productImageView.layer.cornerRadius = 25
         downloadButton.layer.cornerRadius = 29.5
@@ -134,22 +142,15 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         // Setup cross button image insets
         crossDownloadButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
-        textfadeinView.alpha = 0
-        collectionVieww.alpha = 0
+        // Swipe down to dismiss view controller
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(dismisss(_:)))
+            swipeDown.direction = .down
+            view.addGestureRecognizer(swipeDown)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now()) { [self] in
-            UIView.animate(withDuration: 0.4, animations: { [self] in
-                textfadeinView.alpha = 1
-                collectionVieww.alpha = 1
-            }) {(finished) in
-                
-            }
-        }
-        
+    @objc func dismisss(_ sender: Any)  {
+        self.dismiss(animated: true, completion: nil)
     }
-    
    
     //MARK:- Setup button actions
     @objc func downloadBttnTapped(_ sender: Any) {
