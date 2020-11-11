@@ -12,7 +12,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageVieww: UIImageView!
     @IBOutlet weak var greenButton: UIButton!
     
-    //MARK:- Events
+    
+    //MARK:- Tap animamtion on Cell
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             super.touchesBegan(touches, with: event)
             animate(isHighlighted: true)
@@ -28,6 +29,7 @@ class MainCollectionViewCell: UICollectionViewCell {
             animate(isHighlighted: false)
         }
 
+    
         //MARK:- Private functions
         private func animate(isHighlighted: Bool, completion: ((Bool) -> Void)?=nil) {
             let animationOptions: UIView.AnimationOptions = [.allowUserInteraction]
