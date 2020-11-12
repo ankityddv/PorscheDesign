@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Play-->
+        <!--Task Zero-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TaskZero" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,21 +26,21 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="xIa-9o-KpX">
-                                            <size key="itemSize" width="312" height="466"/>
+                                            <size key="itemSize" width="354" height="466"/>
                                             <size key="headerReferenceSize" width="0.0" height="50"/>
-                                            <size key="footerReferenceSize" width="0.0" height="20"/>
+                                            <size key="footerReferenceSize" width="0.0" height="65"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionViewCell" id="1xW-bQ-X4P" customClass="MainCollectionViewCell" customModule="TaskZero" customModuleProvider="target">
-                                                <rect key="frame" x="51" y="50" width="312" height="466"/>
+                                                <rect key="frame" x="30" y="50" width="354" height="466"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6cA-e1-4Tv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="312" height="466"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="466"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMT-GZ-rL7">
-                                                            <rect key="frame" x="30" y="375" width="253" height="59"/>
+                                                            <rect key="frame" x="51" y="370" width="253" height="59"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" name="GreenColor"/>
                                                             <state key="normal" title="Continue">
@@ -48,13 +48,13 @@
                                                             </state>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="one" translatesAutoresizingMaskIntoConstraints="NO" id="dfD-3E-0cO">
-                                                            <rect key="frame" x="22" y="42" width="106" height="106"/>
+                                                            <rect key="frame" x="39" y="40" width="106" height="106"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" name="OrangeColor"/>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="312" height="466"/>
+                                                <size key="customSize" width="354" height="466"/>
                                                 <connections>
                                                     <outlet property="greenButton" destination="jMT-GZ-rL7" id="J1O-n4-YpH"/>
                                                     <outlet property="imageVieww" destination="dfD-3E-0cO" id="6M9-k1-f1x"/>
@@ -66,7 +66,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionReusableView>
                                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ibZ-5t-duF">
-                                            <rect key="frame" x="0.0" y="516" width="414" height="20"/>
+                                            <rect key="frame" x="0.0" y="516" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionReusableView>
                                         <connections>
@@ -81,7 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="WhiteColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Play" largeTitleDisplayMode="always" id="Mlw-va-HIQ"/>
+                    <navigationItem key="navigationItem" title="Task Zero" largeTitleDisplayMode="always" id="Mlw-va-HIQ"/>
                     <connections>
                         <outlet property="bgView" destination="zCb-C4-GZB" id="wJH-WX-0yP"/>
                     </connections>
@@ -124,7 +124,7 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lRv-UR-mDJ">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="450"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="OrangeColor"/>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="297" height="450"/>
                                     </collectionViewCell>
@@ -189,7 +189,7 @@
                                 <rect key="frame" x="324" y="790" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="LavenderColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="BlackColor"/>
                                 <state key="normal" image="close"/>
                             </button>
                         </subviews>
@@ -331,7 +331,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" name="GreenColor"/>
                             <state key="normal" title="5">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" name="WhiteColor"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkh-jV-PLx">
@@ -430,10 +430,10 @@
             <color red="0.84500002861022949" green="0.51499998569488525" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OrangeColor">
-            <color red="0.95686274509803915" green="0.43529411764705883" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.93000000715255737" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="WhiteColor">
-            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

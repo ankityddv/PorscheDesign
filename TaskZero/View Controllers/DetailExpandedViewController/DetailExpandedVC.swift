@@ -55,17 +55,19 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     @IBAction func greenBttnTapped(_ sender: Any) {
         if x==0 {
             ViewOne.isHidden = true
+            ViewTwo.isHidden = false
             //Add slide Transition to view
             let transition = CATransition()
             transition.type = CATransitionType.push
             transition.subtype = CATransitionSubtype.fromRight
             popUpContainerView.layer.add(transition, forKey: nil)
             popUpContainerView.addSubview(ViewTwo)
-            
+            print(x)
             x += 1
         }
         else if x==1 {
             ViewTwo.isHidden = true
+            ViewThree.isHidden = false
             //Add slide Transition to view
             let transition = CATransition()
             transition.type = CATransitionType.push
@@ -83,11 +85,51 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                         greenButton.setTitle("Confirm", for: .normal)
                         
             }, completion: nil)
-            
+            print(x)
             x += 1
         }
         else {
+            print("Excess press")
+        }
+    }
+    
+    @objc func swipeRightpopUp(_ sender: Any) {
+        if x==1 {
+            ViewOne.isHidden = false
+            ViewTwo.isHidden = true
+            //Add slide Transition to view
+            let transition = CATransition()
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromLeft
+            popUpContainerView.layer.add(transition, forKey: nil)
+            popUpContainerView.addSubview(ViewOne)
+            print(x)
+            x -= 1
+        }
+        else if x==2 {
+            ViewTwo.isHidden = false
+            ViewThree.isHidden = true
+            //Add slide Transition to view
+            let transition = CATransition()
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromLeft
+            popUpContainerView.layer.add(transition, forKey: nil)
+            popUpContainerView.addSubview(ViewTwo)
             
+            UIView.animate(withDuration: 1.0, delay: 0.5,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: [.curveEaseIn],
+                       animations: { [self] in
+                        
+                        greenButton.backgroundColor = UIColor(named: "GreenColor")
+                        greenButton.setTitle("NEXT", for: .normal)
+                        
+            }, completion: nil)
+            print(x)
+            x -= 1
+        }
+        else {
             print("Excess press")
         }
     }
@@ -118,6 +160,14 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             swipeDown.direction = .down
             view.addGestureRecognizer(swipeDown)
         
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(greenBttnTapped(_:)))
+            swipeLeft.direction = .left
+            popUpView.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightpopUp(_:)))
+            swipeRight.direction = .right
+            popUpView.addGestureRecognizer(swipeRight)
+        
         // DeatilView
         productImageView.layer.cornerRadius = 25
         downloadButton.layer.cornerRadius = 29.5
@@ -145,6 +195,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     @objc func dismisss(_ sender: Any)  {
         self.dismiss(animated: true, completion: nil)
     }
+
    
     //MARK:- Setup download button action
     @objc func downloadBttnTapped(_ sender: Any) {
@@ -158,6 +209,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                 presentPopUp(sender)
                 popUpContainerView.addSubview(self.ViewOne)
             }
+            
             // Set the download button to initial State
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [self] in
                 y = 0

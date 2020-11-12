@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import Hero // To implement app store like transition animation
+import Hero //To implement app store like transition animation
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
-    var imgArr = ["one","two","three"] // images for collection view
+    var imgArr = ["one","two","three"] //images for collection view
     
     @IBOutlet weak var bgView: UIView!
     
@@ -25,10 +25,19 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         cell.imageVieww.image = UIImage(named: imgArr[indexPath.row])
         cell.imageVieww.layer.cornerRadius = 25
         cell.greenButton.layer.cornerRadius = 29.5
-        cell.contentView.layer.cornerRadius = 38
+        cell.contentView.layer.cornerRadius = 30
+        /*
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 2.5, height: 15.0)
+        cell.layer.shadowRadius = 10.0
+        cell.layer.shadowOpacity = 0.2
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+        */
+        
         // Initialise id to animate the view controller tranition
         cell.contentView.hero.id = "lol"
-        cell.greenButton.hero.id = "lmao"
+        cell.greenButton.hero.id = "lmao" // Button to image transition
         
         cell.contentView.clipsToBounds = true
         return cell

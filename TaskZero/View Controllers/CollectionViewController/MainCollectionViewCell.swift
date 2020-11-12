@@ -14,6 +14,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     
     //MARK:- Tap animamtion on Cell
+    
+    
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             super.touchesBegan(touches, with: event)
             animate(isHighlighted: true)
@@ -34,7 +36,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         private func animate(isHighlighted: Bool, completion: ((Bool) -> Void)?=nil) {
             let animationOptions: UIView.AnimationOptions = [.allowUserInteraction]
             if isHighlighted {
-                UIView.animate(withDuration: 0.3,
+                UIView.animate(withDuration: 0.5,
                                delay: 0,
                                usingSpringWithDamping: 1,
                                initialSpringVelocity: 0.4,
@@ -42,7 +44,7 @@ class MainCollectionViewCell: UICollectionViewCell {
                                 self.transform = .init(scaleX: 0.96, y: 0.96)
                 }, completion: completion)
             } else {
-                UIView.animate(withDuration: 0.3,
+                UIView.animate(withDuration: 0.5,
                                delay: 0,
                                usingSpringWithDamping: 1,
                                initialSpringVelocity: 0.4,
