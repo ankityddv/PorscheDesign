@@ -123,7 +123,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                        options: [.curveEaseIn],
                        animations: { [self] in
                         
-                        greenButton.backgroundColor = UIColor(named: "ButtonColor2")
+                        greenButton.backgroundColor = UIColor(named: "ButtonColor1")
                         greenButton.setTitle("NEXT", for: .normal)
                         
             }, completion: nil)

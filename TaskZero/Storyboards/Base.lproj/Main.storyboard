@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TaskZero" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-C4-GZB">
@@ -433,7 +433,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-He-Y8X">
                             <rect key="frame" x="81" y="338" width="253" height="59"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" name="ButtonColor2"/>
+                            <color key="backgroundColor" name="ButtonColor1"/>
                             <state key="normal" title="NEXT">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -448,25 +448,18 @@
                         </view>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="u2b-11-y2l"/>
-                    <color key="backgroundColor" name="WhiteColor"/>
+                    <color key="backgroundColor" name="SecondaryDarkColor"/>
                 </view>
                 <view contentMode="scaleToFill" id="guE-Mk-m74">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TaskZero Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSx-Zr-UFk">
-                            <rect key="frame" x="156" y="114" width="103" height="17"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-4G-CNJ">
                             <rect key="frame" x="92" y="167" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" name="ButtonColor2"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="GillSans-BoldItalic" family="Gill Sans" pointSize="17"/>
-                            <state key="normal" title="5">
+                            <state key="normal" title="7">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
@@ -482,9 +475,9 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKZ-K8-3sz">
                             <rect key="frame" x="272" y="167" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="ButtonColor2"/>
                             <fontDescription key="fontDescription" name="GillSans-BoldItalic" family="Gill Sans" pointSize="17"/>
-                            <state key="normal" title="15">
+                            <state key="normal" title="11">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
@@ -599,7 +592,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij0-ca-yZg">
-                                <rect key="frame" x="377" y="65" width="13" height="13"/>
+                                <rect key="frame" x="377" y="70" width="13" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="close"/>
@@ -726,10 +719,7 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="fFH-hi-zqn"/>
         <designable name="of5-Dg-NDn"/>
-        <designable name="s6d-jR-KI8"/>
-        <designable name="wQn-XQ-Zpd"/>
     </designables>
     <resources>
         <image name="Home" width="14" height="13"/>
@@ -737,7 +727,7 @@
         <image name="close" width="170.66667175292969" height="170.66667175292969"/>
         <image name="detailOne" width="1000" height="1515"/>
         <image name="map" catalog="system" width="128" height="110"/>
-        <image name="one" width="1500" height="1500"/>
+        <image name="one" width="1350" height="1350"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="BlackColorOG">
