@@ -10,7 +10,6 @@ import UIKit
 class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageVieww: UIImageView!
-    @IBOutlet weak var greenButton: UIButton!
     
     
     //MARK:- Tap animamtion on Cell

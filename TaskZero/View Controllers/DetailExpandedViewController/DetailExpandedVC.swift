@@ -14,6 +14,8 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     var x = 0
     var y = 0
     
+    var collViewImgArr = ["detailOne","detailTwo"]
+    
     // Create the container view to hide the bg view when PopUp card is presented.
     var containerView = UIView()      //Dark overlay view
     // Initialise PopUp height
@@ -62,7 +64,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             transition.subtype = CATransitionSubtype.fromRight
             popUpContainerView.layer.add(transition, forKey: nil)
             popUpContainerView.addSubview(ViewTwo)
-            print(x)
+            
             x += 1
         }
         else if x==1 {
@@ -85,7 +87,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                         greenButton.setTitle("Confirm", for: .normal)
                         
             }, completion: nil)
-            print(x)
+            
             x += 1
         }
         else {
@@ -103,7 +105,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             transition.subtype = CATransitionSubtype.fromLeft
             popUpContainerView.layer.add(transition, forKey: nil)
             popUpContainerView.addSubview(ViewOne)
-            print(x)
+            
             x -= 1
         }
         else if x==2 {
@@ -126,7 +128,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                         greenButton.setTitle("NEXT", for: .normal)
                         
             }, completion: nil)
-            print(x)
+            
             x -= 1
         }
         else {
@@ -142,8 +144,20 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: BlankDetailCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BlankDetailCollectionViewCell", for: indexPath) as! BlankDetailCollectionViewCell
+        cell.imageVieww.image = UIImage(named: collViewImgArr[indexPath.row])
         cell.contentView.layer.cornerRadius = 25
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let ProductImageVC =  self.storyboard!.instantiateViewController(withIdentifier: "ProductImageVC") as! ProductImageVC
+            self.present(ProductImageVC, animated: true, completion: nil)
+        }
+        else {
+            let ProductImageVC =  self.storyboard!.instantiateViewController(withIdentifier: "ProductImageVC") as! ProductImageVC
+            self.present(ProductImageVC, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -169,7 +183,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             popUpView.addGestureRecognizer(swipeRight)
         
         // DeatilView
-        productImageView.layer.cornerRadius = 25
+        productImageView.layer.cornerRadius = 20
         downloadButton.layer.cornerRadius = 29.5
         downloadopacityView.layer.cornerRadius = 29.5
         crossDownloadButton.layer.cornerRadius = 22.5
@@ -220,8 +234,8 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                            options: [.curveEaseIn],
                            animations: { [self] in
                             self.downloadButton.frame = CGRect(x: 46, y: 783, width: 323, height: 59)
-                            downloadButton.backgroundColor = UIColor(named: "GreenColor")
-                            downloadButton.setTitle("DOWNLOAD 30MB", for: .normal)
+                            downloadButton.backgroundColor = UIColor(named: "ButtonColor1")
+                            downloadButton.setTitle("BUY NOW", for: .normal)
                 }, completion: nil)
             }
         }
@@ -240,8 +254,9 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         crossDownloadButton.alpha = 0.0
         // fade in effect on button title and cross button
         UIView.animate(withDuration: 2.0,delay: 0.5, animations: { [self] in
-                crossDownloadButton.alpha = 1.0
-                downloadButton.setTitle("10MB/30MB", for: .normal)
+            crossDownloadButton.alpha = 1.0
+            downloadButton.setTitle("CHECKING THE STOCK", for: .normal)
+            crossDownloadButton.setImage(UIImage(named: "close"), for: UIControl.State.normal)
         }) { [self] (finished) in
             // After finishing present pop up after a delay of 2 seconds and change cross button image to checked
             UIView.animate(withDuration: 1.0, animations: { [self] in
@@ -272,6 +287,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }) { [self] (finished) in
             UIView.animate(withDuration: 1.0, animations: { [self] in
                 crossDownloadButton.alpha = 0.0 //hide cross button
+                downloadButton.setTitle("HOLD ON", for: .normal)
                 crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
             }) {(finished) in
                 changeButtonColor(sender)
@@ -291,7 +307,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }, completion: nil)
         
         UIView.animate(withDuration: 1.0, animations: { [self] in
-            downloadButton.setTitle("PLAY", for: .normal)
+            downloadButton.setTitle("CHECK OUT", for: .normal)
         }) {(finished) in
             /* Process one finished.
              Now press the download button again and the process will continue to present the pop up

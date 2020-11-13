@@ -23,21 +23,11 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
         cell.imageVieww.image = UIImage(named: imgArr[indexPath.row])
-        cell.imageVieww.layer.cornerRadius = 25
-        cell.greenButton.layer.cornerRadius = 29.5
-        cell.contentView.layer.cornerRadius = 30
-        /*
-        cell.layer.shadowColor = UIColor.darkGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 2.5, height: 15.0)
-        cell.layer.shadowRadius = 10.0
-        cell.layer.shadowOpacity = 0.2
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
-        */
-        
+        cell.imageVieww.layer.cornerRadius = 15
+        cell.contentView.layer.cornerRadius = 20
         // Initialise id to animate the view controller tranition
         cell.contentView.hero.id = "lol"
-        cell.greenButton.hero.id = "lmao" // Button to image transition
+        cell.imageVieww.hero.id = "lmao" // image to image transition
         
         cell.contentView.clipsToBounds = true
         return cell
@@ -46,6 +36,8 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let DetailExpandedVC =  self.storyboard!.instantiateViewController(withIdentifier: "DetailExpandedVC") as! DetailExpandedVC
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.navigationBar.isHidden = true
             self.present(DetailExpandedVC, animated: true, completion: nil)
         }
         else {
@@ -55,8 +47,14 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // To hide the top line
+        self.tabBarController?.tabBar.shadowImage = UIImage()
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
+    }
 
 }
 

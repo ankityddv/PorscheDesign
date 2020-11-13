@@ -6,6 +6,7 @@ target 'TaskZero' do
 
   # Pods for TaskZero
     pod 'Hero'
+    pod 'lottie-ios'
 
   target 'TaskZeroTests' do
     inherit! :search_paths
