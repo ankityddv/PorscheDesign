@@ -1,8 +1,8 @@
-# TaskZero
+# Porsche Design
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Cuberto/liquid-swipe/master/LICENSE)
 [![Swift 4.2](https://img.shields.io/badge/Swift-5-green.svg?style=flat)](https://developer.apple.com/swift/)
 
-Internship interview task for TotalityCorp.
+Demo animations practice project. Started as an internship interview task 😄
 
 ## What you will get in this project
 
