@@ -7,6 +7,7 @@
 
 import UIKit
 import Hero //To implement app store like transition animation
+import Lottie
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
@@ -25,6 +26,26 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         cell.imageVieww.image = UIImage(named: imgArr[indexPath.row])
         cell.imageVieww.layer.cornerRadius = 15
         cell.contentView.layer.cornerRadius = 20
+        
+        // Set animation to AnimatedButton
+        cell.wishlistBttn.animation = Animation.named("TwitterHeartButton")
+
+        // The animation goes outside of the bounds, thus turn off clipsToBounds
+        cell.wishlistBttn.clipsToBounds = false
+
+        // Set animation play ranges for different button state
+        cell.wishlistBttn.setPlayRange(fromMarker: "touchDownStart",
+                                   toMarker: "touchDownEnd",
+                                   event: .touchDown)
+
+        cell.wishlistBttn.setPlayRange(fromMarker: "touchDownEnd",
+                                   toMarker: "touchUpCancel",
+                                   event: .touchUpOutside)
+
+        cell.wishlistBttn.setPlayRange(fromMarker: "touchDownEnd",
+                                   toMarker: "touchUpEnd",
+                                   event: .touchUpInside)
+        
         // Initialise id to animate the view controller tranition
         cell.contentView.hero.id = "lol"
         cell.imageVieww.hero.id = "lmao" // image to image transition

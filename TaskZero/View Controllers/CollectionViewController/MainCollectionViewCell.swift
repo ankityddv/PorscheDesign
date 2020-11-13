@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Lottie
 
 class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageVieww: UIImageView!
-    
+    @IBOutlet weak var wishlistBttn: AnimatedButton!
     
     //MARK:- Tap animamtion on Cell
     

@@ -15,6 +15,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     var x = 0
     var y = 0
     
+    
     var collViewImgArr = ["detailOne","detailTwo"]
     
     // Create the container view to hide the bg view when PopUp card is presented.
@@ -207,7 +208,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     }
     
     func setUpAnimation(){
-        animationVieww.loopMode = .loop
+        animationVieww.loopMode = .playOnce
         animationVieww.play()
     }
     

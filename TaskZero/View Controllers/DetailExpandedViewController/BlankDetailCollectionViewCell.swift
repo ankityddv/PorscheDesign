@@ -10,7 +10,6 @@ import UIKit
 class BlankDetailCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageVieww: UIImageView!
-    
     //MARK:- Tap animamtion on Cell
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             super.touchesBegan(touches, with: event)
