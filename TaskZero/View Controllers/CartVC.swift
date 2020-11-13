@@ -1,5 +1,5 @@
 //
-//  AnimationsVC.swift
+//  CartVC.swift
 //  TaskZero
 //
 //  Created by ANKIT YADAV on 13/11/20.
@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class AnimationsVC: UIViewController {
+class CartVC: UIViewController {
 
     @IBOutlet weak var animationVieww: AnimationView!
     

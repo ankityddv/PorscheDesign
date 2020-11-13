@@ -7,6 +7,7 @@
 
 import UIKit
 import Hero
+import Lottie
 
 class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
@@ -43,15 +44,15 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     @IBOutlet weak var greenButton: UIButton! //Next Button
     // View one
     @IBOutlet var ViewOne: UIView!
-    @IBOutlet weak var imageOne: UIImageView!
-    @IBOutlet weak var imageTwo: UIImageView!
-    // View Two
-    @IBOutlet var ViewTwo: UIView!
     @IBOutlet weak var FiveBttn: UIButton!
     @IBOutlet weak var TenBttn: UIButton!
     @IBOutlet weak var FifteenBttn: UIButton!
+    // View Two
+    @IBOutlet var ViewTwo: UIView!
+    @IBOutlet weak var checkoutProductImage: UIImageView!
     //View Three
     @IBOutlet var ViewThree: UIView!
+    @IBOutlet weak var animationVieww: AnimationView!
     
     // Setup action of PopUp card Next Button
     @IBAction func greenBttnTapped(_ sender: Any) {
@@ -82,16 +83,13 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                        initialSpringVelocity: 0.7,
                        options: [.curveEaseIn],
                        animations: { [self] in
-                        
-                        greenButton.backgroundColor = UIColor(named: "GrayColor")
-                        greenButton.setTitle("Confirm", for: .normal)
-                        
-            }, completion: nil)
+                        greenButton.setTitle("Done", for: .normal)
+            })
             
             x += 1
         }
         else {
-            print("Excess press")
+            popUpViewTapped()
         }
     }
     
@@ -124,7 +122,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                        options: [.curveEaseIn],
                        animations: { [self] in
                         
-                        greenButton.backgroundColor = UIColor(named: "GreenColor")
+                        greenButton.backgroundColor = UIColor(named: "ButtonColor2")
                         greenButton.setTitle("NEXT", for: .normal)
                         
             }, completion: nil)
@@ -196,15 +194,23 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         // PopUp View
         greenButton.layer.cornerRadius = 29.5
         popUpView.layer.cornerRadius = 20
-        // SetUp View One
-        imageOne.layer.cornerRadius = 50
-        imageTwo.layer.cornerRadius = 50
-        //SetUp View two
         FiveBttn.layer.cornerRadius = 25
         TenBttn.layer.cornerRadius = 25
         FifteenBttn.layer.cornerRadius = 25
+        //SetUp View two
+        checkoutProductImage.layer.cornerRadius = 10
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUpAnimation()
+    }
+    
+    func setUpAnimation(){
+        animationVieww.loopMode = .loop
+        animationVieww.play()
+    }
+    
     // Swipe down to dismiss view controller
     @objc func dismisss(_ sender: Any)  {
         self.dismiss(animated: true, completion: nil)
@@ -287,7 +293,7 @@ class DetailExpandedVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }) { [self] (finished) in
             UIView.animate(withDuration: 1.0, animations: { [self] in
                 crossDownloadButton.alpha = 0.0 //hide cross button
-                downloadButton.setTitle("HOLD ON", for: .normal)
+                downloadButton.setTitle("Yaaay! It's available", for: .normal)
                 crossDownloadButton.setImage(UIImage(named: "check"), for: UIControl.State.normal)
             }) {(finished) in
                 changeButtonColor(sender)

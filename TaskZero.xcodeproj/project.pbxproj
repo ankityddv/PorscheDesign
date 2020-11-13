@@ -8,9 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3607286A255E4C99002F7405 /* liked.json in Resources */ = {isa = PBXBuildFile; fileRef = 36072869255E4C98002F7405 /* liked.json */; };
+		361D1D72255EB2690069B988 /* porsche.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 361D1D71255EB2690069B988 /* porsche.ttf */; };
+		361D1D7F255EC7620069B988 /* ordered.json in Resources */ = {isa = PBXBuildFile; fileRef = 361D1D7E255EC7620069B988 /* ordered.json */; };
 		3624CCD2255A552300930DB3 /* BlankDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624CCD1255A552300930DB3 /* BlankDetailCollectionViewCell.swift */; };
+		36501C26255EADF700BB704F /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 36501C25255EADF700BB704F /* categories.json */; };
+		36501C2B255EAF8B00BB704F /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 36501C2A255EAF8B00BB704F /* User.json */; };
 		3662E0C42559947800561FE7 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662E0C32559947800561FE7 /* MainCollectionViewCell.swift */; };
 		3662E0CA25599C1A00561FE7 /* DetailExpandedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662E0C925599C1A00561FE7 /* DetailExpandedVC.swift */; };
+		36912F14255EA93700072A53 /* shopping_cart.json in Resources */ = {isa = PBXBuildFile; fileRef = 36912F13255EA93700072A53 /* shopping_cart.json */; };
+		36912F19255EAA8300072A53 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36912F18255EAA8300072A53 /* CartVC.swift */; };
+		36912F1E255EAA9900072A53 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36912F1D255EAA9900072A53 /* ProfileVC.swift */; };
 		369B8E40255E4E30001C209E /* AnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B8E3F255E4E30001C209E /* AnimationsVC.swift */; };
 		369C40D325598B420026ACBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369C40D225598B420026ACBB /* AppDelegate.swift */; };
 		369C40D525598B420026ACBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369C40D425598B420026ACBB /* SceneDelegate.swift */; };
@@ -48,9 +55,16 @@
 
 /* Begin PBXFileReference section */
 		36072869255E4C98002F7405 /* liked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = liked.json; sourceTree = "<group>"; };
+		361D1D71255EB2690069B988 /* porsche.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = porsche.ttf; sourceTree = "<group>"; };
+		361D1D7E255EC7620069B988 /* ordered.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ordered.json; sourceTree = "<group>"; };
 		3624CCD1255A552300930DB3 /* BlankDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		36501C25255EADF700BB704F /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		36501C2A255EAF8B00BB704F /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		3662E0C32559947800561FE7 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		3662E0C925599C1A00561FE7 /* DetailExpandedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpandedVC.swift; sourceTree = "<group>"; };
+		36912F13255EA93700072A53 /* shopping_cart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shopping_cart.json; sourceTree = "<group>"; };
+		36912F18255EAA8300072A53 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		36912F1D255EAA9900072A53 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		369B8E3F255E4E30001C209E /* AnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsVC.swift; sourceTree = "<group>"; };
 		369C40CF25598B420026ACBB /* TaskZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369C40D225598B420026ACBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +127,10 @@
 		3607286E255E4D09002F7405 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				36912F13255EA93700072A53 /* shopping_cart.json */,
+				36501C25255EADF700BB704F /* categories.json */,
+				36501C2A255EAF8B00BB704F /* User.json */,
+				361D1D7E255EC7620069B988 /* ordered.json */,
 				36072869255E4C98002F7405 /* liked.json */,
 			);
 			path = Animations;
@@ -143,6 +161,8 @@
 				3624CCDB255A5AA500930DB3 /* DetailExpandedViewController */,
 				36E8ABEF255DCB50006449B7 /* ProductImageVC.swift */,
 				369B8E3F255E4E30001C209E /* AnimationsVC.swift */,
+				36912F18255EAA8300072A53 /* CartVC.swift */,
+				36912F1D255EAA9900072A53 /* ProfileVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -224,6 +244,7 @@
 		36C20127255D94EB0052AA7F /* Custom Files */ = {
 			isa = PBXGroup;
 			children = (
+				361D1D71255EB2690069B988 /* porsche.ttf */,
 				3607286E255E4D09002F7405 /* Animations */,
 				36C20126255D94AD0052AA7F /* CustomTabBar */,
 			);
@@ -361,7 +382,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36912F14255EA93700072A53 /* shopping_cart.json in Resources */,
+				36501C26255EADF700BB704F /* categories.json in Resources */,
+				361D1D7F255EC7620069B988 /* ordered.json in Resources */,
 				369C40DF25598B440026ACBB /* LaunchScreen.storyboard in Resources */,
+				361D1D72255EB2690069B988 /* porsche.ttf in Resources */,
+				36501C2B255EAF8B00BB704F /* User.json in Resources */,
 				369C40DC25598B440026ACBB /* Assets.xcassets in Resources */,
 				369C40DA25598B420026ACBB /* Main.storyboard in Resources */,
 				3607286A255E4C99002F7405 /* liked.json in Resources */,
@@ -494,11 +520,13 @@
 			files = (
 				369B8E40255E4E30001C209E /* AnimationsVC.swift in Sources */,
 				36C2011A255D94990052AA7F /* CBTabBarButton.swift in Sources */,
+				36912F19255EAA8300072A53 /* CartVC.swift in Sources */,
 				36C20122255D94A60052AA7F /* BubbleTabBarController.swift in Sources */,
 				369C40D725598B420026ACBB /* ViewController.swift in Sources */,
 				369C40D325598B420026ACBB /* AppDelegate.swift in Sources */,
 				369C40D525598B420026ACBB /* SceneDelegate.swift in Sources */,
 				3662E0C42559947800561FE7 /* MainCollectionViewCell.swift in Sources */,
+				36912F1E255EAA9900072A53 /* ProfileVC.swift in Sources */,
 				36E8ABF0255DCB50006449B7 /* ProductImageVC.swift in Sources */,
 				36C20121255D94A60052AA7F /* BubbleTabBar.swift in Sources */,
 				3624CCD2255A552300930DB3 /* BlankDetailCollectionViewCell.swift in Sources */,
