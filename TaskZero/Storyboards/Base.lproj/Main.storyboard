@@ -718,9 +718,6 @@
             <point key="canvasLocation" x="6347.826086956522" y="395.75892857142856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="of5-Dg-NDn"/>
-    </designables>
     <resources>
         <image name="Home" width="14" height="13"/>
         <image name="cart" catalog="system" width="128" height="102"/>
